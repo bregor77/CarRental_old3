@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+
+<%= search_form_for @q do |f| %>  
+  <%#= f.label :brand_cont, style: "display: block" %>
+  <%= f.label :brand_cont %>
+  <%= f.search_field :brand_cont %><br>
+  <%#= f.submit %>
+  <%= f.label :carmodel_cont%>
+  <%= f.search_field :carmodel_cont %><br>
+  <%= f.submit %>
+<% end %>
+
+<h1>List of Cars:</h1>
+
+Our Car Rental has <%= Car.public_count %> cars and counting!
+
+<div id="cars">
+  <% @cars.each do |car| %>        
+    <%= render car %>
+    <p>
+      <%= link_to "Show this car", car %>
+    </p>
+    <% unless car.archived? %>
+      <%# <li> %>
+        <%#= link_to car.brand, car %>
+      <%# </li> %>
+    <% end %>
+  <% end %>
+</div>
+
+<%#= link_to "New car", new_car_path %>
+<% if current_user.moderator? || current_user.admin? %>
+  <%= link_to "New car", new_car_path %>        
+<% end %>
+
