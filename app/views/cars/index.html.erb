@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <%= search_form_for @q do |f| %>  
-  <%#= f.label :brand_cont, style: "display: block" %>
+  <%#= f.label :brand_cont, style: "display: block" %> <!-- just for test "display blocks" --->
   <%= f.label :brand_cont %>
   <%= f.search_field :brand_cont %><br>
   <%#= f.submit %>
@@ -28,8 +28,10 @@ Our Car Rental has <%= Car.public_count %> cars and counting!
   <% end %>
 </div>
 
-<%#= link_to "New car", new_car_path %>
-<% if current_user.moderator? || current_user.admin? %>
-  <%= link_to "New car", new_car_path %>        
+<!-- Display "New Car" button if ADMIN is login - using USER ROLE -->
+<% if current_user %>
+  <% if current_user.admin? %>
+  <%# if current_user.moderator? || current_user.admin? %> <!-- working but it gives and errors in TESTS -->
+    <%= link_to "New car", new_car_path %>        
+  <% end %>
 <% end %>
-

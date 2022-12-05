@@ -2,13 +2,26 @@ class CarsController < ApplicationController
   
   http_basic_authenticate_with name: "admin", password: "123456", only: :destroy
   
-  before_action :set_car, only: %i[ show edit update destroy ]
+  # before_action :set_car, only: %i[ show edit update destroy ]
+  before_action :set_car, only: [ :show, :edit, :update, :destroy ]
 
   # GET /cars or /cars.json
   def index    
     @q = Car.ransack(params[:q]) ## adding Search funtionality using ransack gem
     @cars = @q.result ## display cars by results from @q
     # @cars = Car.all ## line commented after adding ransack search
+
+    # Using API
+    response = HTTParty.get("https://api.publicapis.org/categories")
+    # console
+    @response = JSON.parse(response.body)
+    @categories = @response["categories"]
+
+    @cat_facts = JSON.parse(HTTParty.get("https://cataas.com/api/tags").body)
+    # @cat_facts = JSON.parse(HTTParty.get("https://cataas.com/api/cats?tags=tag1,tag2&skip=0&limit=10").body)
+    # console
+
+
   end
 
   # GET /cars/1 or /cars/1.json
