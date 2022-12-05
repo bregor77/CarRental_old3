@@ -10,9 +10,7 @@
 # two: {}
 # column: value
 one:
-  email: foo@example.com
-  # encrypted_password: value
+  email: 111@example.com
 
 two:
-  email: foo@example.com
-  # encrypted_password: value
+  email: 222@example.com

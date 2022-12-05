@@ -2,8 +2,9 @@
 
 <%= render @car %>
 
+<!-- Display "Delete Car" button if Admin is login - using USER ROLE -->
 <div>
-  <%# if current_user %>
+  <% if current_user %>
     <% if current_user.admin? %>
         <p>You are admin. You can add and edit</p>
         <%= link_to "Edit this car", edit_car_path(@car) %> |
@@ -12,7 +13,7 @@
       <% else %> 
       <%= link_to "Back to cars", cars_path %>       
     <% end %>    
-  <%# end %>
+  <% end %>
 </div>
 
 <h2>Comments</h2>

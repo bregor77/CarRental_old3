@@ -77,6 +77,14 @@ group :test do
   gem "webdrivers"
 end
 
+# Authentication
 gem "devise", "~> 4.8"
 
+# Search
 gem "ransack", "~> 3.2"
+
+# for API
+gem "httparty", "~> 0.20.0"
+
+# for KEY in API
+gem 'dotenv-rails', groups: [:development, :test]

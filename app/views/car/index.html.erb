@@ -1,2 +1,6 @@
 <h1>Car Renatal Index Page</h1>
 <%# <p>Find me in app/views/car/index.html.erb</p> %>
+
+<% @cat_facts.each do |cat| %>
+    <p><%= cat %></p>
+<% end %>
