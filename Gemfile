@@ -87,4 +87,4 @@ gem "ransack", "~> 3.2"
 gem "httparty", "~> 0.20.0"
 
 # for KEY in API
-gem 'dotenv-rails', groups: [:development, :test]
+gem "dotenv-rails", groups: [:development, :test]

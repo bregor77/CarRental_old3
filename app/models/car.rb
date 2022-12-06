@@ -1,6 +1,6 @@
 class Car < ApplicationRecord    
     include Visible
-    belongs_to :user
+    # belongs_to :user
     has_many :comments, dependent: :destroy
 
     validates :brand, presence: true
