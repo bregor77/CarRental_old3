@@ -7,10 +7,10 @@
   <%#= f.submit %>
   <%= f.label :carmodel_cont%>
   <%= f.search_field :carmodel_cont %><br>
-  <%= f.submit %>
+  <%= f.submit %><hr />
 <% end %>
 
-<h1>List of Cars:</h1>
+<h1>List of Cars:</h1><br>
 
 Our Car Rental has <%= Car.public_count %> cars and counting!
 
@@ -19,19 +19,19 @@ Our Car Rental has <%= Car.public_count %> cars and counting!
     <%= render car %>
     <p>
       <%= link_to "Show this car", car %>
-    </p>
+    </p><hr />
     <% unless car.archived? %>
       <%# <li> %>
         <%#= link_to car.brand, car %>
       <%# </li> %>
     <% end %>
-  <% end %>
+  <% end %> 
 </div>
 
 <!-- Display "New Car" button if ADMIN is login - using USER ROLE -->
 <% if current_user %>
   <% if current_user.admin? %>
   <%# if current_user.moderator? || current_user.admin? %> <!-- working but it gives and errors in TESTS -->
-    <%= link_to "New car", new_car_path %>        
+    <%= link_to "New car", new_car_path %>
   <% end %>
 <% end %>
