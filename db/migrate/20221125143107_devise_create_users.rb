@@ -13,7 +13,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       ## Rememberable
       t.datetime :remember_created_at
-      t.integer :role, default: 0 # set def role (0) as regular user. Admin role = 2
+      t.integer :role, default: 0 # set default role=0 as regular user. Admin role=2
       
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
